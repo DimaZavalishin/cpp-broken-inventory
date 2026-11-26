@@ -13,5 +13,5 @@ int Armor::GetDefense() const noexcept
 
 std::string Armor::Use()
 {
-    return "Equip: " + m_name;
+    return "Equip: " + GetName();
 }

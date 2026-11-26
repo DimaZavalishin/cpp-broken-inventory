@@ -16,7 +16,7 @@ public:
 
     virtual std::string Use();
 
-protected:
+private:
     std::string m_name;
     int m_quantity;
 };

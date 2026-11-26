@@ -13,5 +13,5 @@ int Weapon::GetDamage() const noexcept
 
 std::string Weapon::Use()
 {
-    return "Attack: " + m_name;
+    return "Attack: " + GetName();
 }

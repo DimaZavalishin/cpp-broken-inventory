@@ -89,6 +89,7 @@ int main()
     Check(basePtrArmor->Use() == "Equip: Shield", "virtual dispatch armor", failures);
     Check(basePtrPotion->Use() == "Empty: Health", "virtual dispatch potion", failures);
 
+
     Inventory inv;
     Check(inv.GetSize() == 0, "empty inventory size", failures);
     Check(inv.At(0) == nullptr, "empty inventory at(0)", failures);
@@ -137,12 +138,18 @@ int main()
 
     Check(inv.Remove(1), "remove middle element", failures);
     Check(inv.GetSize() == 3, "size after middle remove", failures);
-    Check(inv.At(0) == &sword && inv.At(1) == &shield && inv.At(2) == &potion, "order preserved after middle remove", failures);
+    Check(
+        inv.At(0) == &sword && inv.At(1) == &shield && inv.At(2) == &potion,
+        "order preserved after middle remove",
+        failures);
     Check(sameNameSword.GetQuantity() == 5, "removed object still alive", failures);
 
     Check(inv.Remove(0), "remove first element", failures);
     Check(inv.GetSize() == 2, "size after first remove", failures);
-    Check(inv.At(0) == &shield && inv.At(1) == &potion, "order preserved after first remove", failures);
+    Check(
+        inv.At(0) == &shield && inv.At(1) == &potion,
+        "order preserved after first remove",
+        failures);
 
     Check(inv.Remove(1), "remove last element", failures);
     Check(inv.GetSize() == 1, "size after last remove", failures);

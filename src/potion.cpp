@@ -13,11 +13,12 @@ int Potion::GetHealing() const noexcept
 
 std::string Potion::Use()
 {
-    if (m_quantity == 0)
+    const int currentQuantity = GetQuantity();
+    if (currentQuantity == 0)
     {
-        return "Empty: " + m_name;
+        return "Empty: " + GetName();
     }
 
-    --m_quantity;
-    return "Drink: " + m_name;
+    SetQuantity(currentQuantity - 1);
+    return "Drink: " + GetName();
 }
